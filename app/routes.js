@@ -33,6 +33,27 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       },
+    },
+    {
+      path: '/auth',
+      name: 'authRedirectPage',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/AuthRedirectPage/reducer'),
+          import('containers/AuthRedirectPage/sagas'),
+          import('containers/AuthRedirectPage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('authRedirectPage', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
     }, {
       path: '*',
       name: 'notfound',

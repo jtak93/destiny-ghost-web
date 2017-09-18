@@ -14,11 +14,23 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  constructor(props) {
+    super(props)
+    this.bungieLogin = this.bungieLogin.bind(this)
+  }
+
+  bungieLogin() {
+    console.log('bungie login')
+    window.location = 'https://www.bungie.net/en/OAuth/Authorize?client_id=21342&response_type=code'
+  }
   render() {
     return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-      </h1>
+      <div>
+        <h1>
+          <FormattedMessage {...messages.header} />
+        </h1>
+        <button onClick={this.bungieLogin}>Login with Bungie</button>
+      </div>
     );
   }
 }
