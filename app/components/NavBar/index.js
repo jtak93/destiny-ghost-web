@@ -14,7 +14,13 @@ import { push } from 'react-router-redux';
 import { connect } from 'react-redux';
 
 class NavBar extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+
   handleItemClick = (e, { url }) => this.props.push(url)
+
+  handleBungieLogin = (e) => {
+    window.location = 'https://www.bungie.net/en/OAuth/Authorize?client_id=21342&response_type=code'
+  }
+
   render() {
     return (
       <Menu size='massive' inverted>
@@ -23,7 +29,7 @@ class NavBar extends React.PureComponent { // eslint-disable-line react/prefer-s
 
         <Menu.Menu position='right'>
           <Menu.Item>
-            <Button primary inverted id='login-button'>Login With Bungie</Button>
+            <Button primary inverted id='login-button' onClick={this.handleBungieLogin}>Login With Bungie</Button>
           </Menu.Item>
         </Menu.Menu>
       </Menu>
