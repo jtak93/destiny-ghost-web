@@ -57,6 +57,6 @@ injectGlobal`
 
   #home-container {
     min-height: 700px;
-    background: url("https://destinyghost.me/assets/destiny_ghost.gif") no-repeat center;
+    background: url("https://destinyghost.me/assets/destiny_ghost-min.gif") no-repeat center;
   }
 `;

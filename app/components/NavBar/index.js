@@ -10,15 +10,16 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import { Button, Dropdown, Menu, Image } from 'semantic-ui-react'
-import './assets/destiny_ghost.gif'
+import { push } from 'react-router-redux';
+import { connect } from 'react-redux';
 
 class NavBar extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-  handleItemClick = (e, { name }) => console.log('clicked')
+  handleItemClick = (e, { url }) => this.props.push(url)
   render() {
     return (
       <Menu size='massive' inverted>
-        <Menu.Item name='Destiny Ghost' onClick={this.handleItemClick} />
-        <Menu.Item name='About' onClick={this.handleItemClick} />
+        <Menu.Item name='Destiny Ghost' url='/' onClick={this.handleItemClick} />
+        <Menu.Item name='about' url='/about' onClick={this.handleItemClick} />
 
         <Menu.Menu position='right'>
           <Menu.Item>
@@ -34,4 +35,10 @@ NavBar.propTypes = {
 
 };
 
-export default NavBar;
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    push: (url) => dispatch(push(url)),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(NavBar);
