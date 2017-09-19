@@ -28,4 +28,9 @@ injectGlobal`
     font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
   }
+
+  #login-button {
+    background-color: #032F3E;
+    color: #F5F8F9
+  }
 `;
