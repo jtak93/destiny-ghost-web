@@ -6,7 +6,7 @@ injectGlobal`
   body {
     height: 100%;
     width: 100%;
-    background-color: #024A59;
+    background-color: #002537;
     color: #F5F8F9
   }
 
@@ -32,5 +32,31 @@ injectGlobal`
   #login-button {
     background-color: #032F3E;
     color: #F5F8F9
+  }
+
+  #login-button:hover {
+    background-color: #02212B;
+  }
+
+  #login-button:active {
+    background-color: #000203;
+  }
+
+  #get-started {
+    background-color: #032F3E;
+    color: #F5F8F9
+  }
+
+  #get-started:hover {
+    background-color: #02212B;
+  }
+
+  #get-started:active {
+    background-color: #000203;
+  }
+
+  #home-container {
+    min-height: 700px;
+    background: url("https://destinyghost.me/assets/destiny_ghost.gif") no-repeat center;
   }
 `;

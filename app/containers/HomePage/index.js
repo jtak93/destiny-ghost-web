@@ -10,6 +10,7 @@
  */
 
 import React from 'react';
+import { Container, Button } from 'semantic-ui-react'
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
@@ -26,10 +27,12 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
   render() {
     return (
       <div>
-        <h1>
-          <FormattedMessage {...messages.header} />
-        </h1>
-        <button onClick={this.bungieLogin}>Login with Bungie</button>
+        <Container textAlign='center' id='home-container'>
+          <h1>
+            <FormattedMessage {...messages.header} />
+          </h1>
+          <Button primary inverted onClick={this.bungieLogin} id='get-started'>Get Started</Button>
+        </Container>
       </div>
     );
   }
