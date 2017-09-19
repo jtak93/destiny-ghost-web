@@ -22,7 +22,7 @@ export class AuthRedirectPage extends React.Component { // eslint-disable-line r
 
     var urlParams = new URLSearchParams(paramsString)
     var code = urlParams.get('code')
-    api.post('/App/OAuth/token/', {code, grant_type: 'authorization_code'})
+    api.post('/App/OAuth/token/', {code, grant_type: 'authorization_code', client_id: '21342'})
       .then(resp => {
         console.log(resp)
       })

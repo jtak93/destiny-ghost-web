@@ -38,8 +38,12 @@ import configureStore from './store';
 // Import i18n messages
 import { translationMessages } from './i18n';
 
+// Import CSS for Semantic ui
+import 'semantic-ui-css/semantic.min.css';
+
 // Import CSS reset and Global Styles
 import './global-styles';
+
 
 // Import root routes
 import createRoutes from './routes';
