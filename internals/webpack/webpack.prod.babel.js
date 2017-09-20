@@ -3,6 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
+const ZipPlugin = require('zip-webpack-plugin');
 
 module.exports = require('./webpack.base.babel')({
   // In production, we skip all hot-reloading stuff
@@ -22,6 +23,18 @@ module.exports = require('./webpack.base.babel')({
       children: true,
       minChunks: 2,
       async: true,
+    }),
+
+    new ZipPlugin({
+      path: 'zip',
+
+      // OPTIONAL: defaults to the Webpack output filename (above) or,
+      // if not present, the basename of the path
+      filename: 'build.zip',
+
+      // OPTIONAL: defaults an empty string
+      // the prefix for the files included in the zip file
+      pathPrefix: 'build',
     }),
 
     // Minify and optimize the index.html
