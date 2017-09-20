@@ -17,15 +17,18 @@ export class AuthRedirectPage extends React.Component { // eslint-disable-line r
     // var urlParams = URLSearchParams.getAll()
     var paramsString = window.location.search
     if (!paramsString) {
-      // redirect to error
+      window.alert('no code')
+    } else {
+      var urlParams = new URLSearchParams(paramsString)
+      var code = urlParams.get('code');
+      var grant_type = 'authorization_code';
+      var client_id = 21342;
+      api.post('/App/OAuth/token/', {code, grant_type, client_id})
+      .then(resp => {
+        localStorage.setItem('bungie-auth', resp.data)
+      })
     }
 
-    var urlParams = new URLSearchParams(paramsString)
-    var code = urlParams.get('code')
-    api.post('/App/OAuth/token/', {code, grant_type: 'authorization_code', client_id: '21342'})
-      .then(resp => {
-        console.log(resp)
-      })
   }
 
   render() {
